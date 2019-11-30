@@ -59,7 +59,7 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right">
     <ul class="nav navbar-nav link-effect-4">
       <li><a href="/ProjectCodex/Dashboard.php?user=<?php echo $_GET['user'] ?>">Dashboard</a> </li>
-      <li><a href="/ProjectCodex/about.html" data-hover="About">About </a> </li>
+      <!-- <li><a href="/ProjectCodex/about.html" data-hover="About">About </a> </li> -->
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#428BCA;font-size:15px;">
           <?php

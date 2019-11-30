@@ -110,7 +110,7 @@ if ($_POST['submit'] == 'submit') {
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right">
     <ul class="nav navbar-nav link-effect-4">
       <li><a href="/ProjectCodex/Dashboard.php?user=<?php echo $_GET['user'] ?>">Dashboard</a> </li>
-      <li><a href="/ProjectCodex/about.html" data-hover="About">About </a> </li>
+      <!-- <li><a href="/ProjectCodex/about.html" data-hover="About">About </a> </li> -->
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#428BCA;font-size:15px;">
           <?php
@@ -163,22 +163,31 @@ if ($_POST['submit'] == 'compile') {
     $lang = "";
     $code = $_POST['myTextArea'];
     $lang = $_POST['language'];
-    $filePath = "/Applications/XAMPP/xamppfiles/htdocs/ProjectCodex/MainCode";
+    $filePath = "MainCode";
+    //$filePath = "/Applications/XAMPP/xamppfiles/htdocs/ProjectCodex/MainCode";
     if ($lang == 'C') {
         $c = fopen($filePath.".c", "w");
         fwrite($c, $code);
         exec("gcc ".$filePath.".c");
         //print_r(exec("MainCode.exe"));
-        print_r(exec("./a.out"));
+       // print_r(exec("./a.out"));
+        $res = shell_exec("./a.out");
+        echo "<pre>$res </pre>";
     } else if ($lang == "python") {
         $pyth = fopen($filePath.".py", "w");
         fwrite($pyth, $code);
-        print_r(exec("python ".$filePath.".py"));
+       // print_r(exec("python ".$filePath.".py"));
+        $res = shell_exec("python ".$filePath.".py");
+        echo "<pre>$res </pre>";
     } else if ($lang == "java") {
         $java = fopen($filePath.".java", "w");
         fwrite($java, $code);
         print_r(exec("javac ".$filePath.".java"));
-        print_r(exec("java ".$filePath));
+        //system("java ".$filePath);
+        //print_r($res);
+        $res = shell_exec("java ".$filePath);
+        echo "<pre>$res </pre>";
+        // print_r($res);
     }
 }
 ?>
