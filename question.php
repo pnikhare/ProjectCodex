@@ -3,7 +3,7 @@
 <head>
     <title>Select Question</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
@@ -47,7 +47,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="header-top-right">
-                <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssdi_group4@gmail.com">ssdi_group4@gmail.com</a></p>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssditeam@gmail.com">ssditeam@gmail.com</a></p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> (704) 191 9191</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         </button>
                         <!-- <div class="navbar-brand logo ">
                             <h1 class="animated wow pulse" data-wow-delay=".5s">
-                                      <a href="index.html">Codex</a></h1>
+                                      <a href="index.html">Smart Coder</a></h1>
                         </div> -->
 
                     </div>
@@ -156,5 +156,9 @@ while ($row = mysqli_fetch_array($res)) {
                         </div>
                 </div>
             </div>
+            <script src="js/jquery/jquery.min.js"></script>
+            <script src="js/bootstrap/bootstrap.min.js"></script>
+            <script src="js/angular/angular.min.js"></script>
+            <script src="js/bzapp.js"></script>
             </body>
 </html>

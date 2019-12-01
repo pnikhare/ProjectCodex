@@ -8,10 +8,10 @@
 <!-- Head -->
 
 <head>
-    <title>Register or Login to Codex a Coding Ground for Students | Register :: Group 4</title>
+    <title>Register or Login to Smart Coder a Coding Ground for Students | Register :: Group 4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Codex a Responsive website, Bootstrap websites, Flat websites, Android Compatible website,
+    <meta name="keywords" content="Smart Coder a Responsive website, Bootstrap websites, Flat websites, Android Compatible website,
 Smartphone Compatible website, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
     <!-- default css files -->
@@ -104,7 +104,7 @@ $quepostid= isset($_GET['quepostid']) ? $_GET['quepostid'] : '';
             <div class="header-top">
                 <div class="container">
                     <div class="header-top-right">
-                    <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssdi_group4@gmail.com">ssdi_group4@gmail.com</a></p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssditeam@gmail.com">ssditeam@gmail.com</a></p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> (704) 191 9191</p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ $quepostid= isset($_GET['quepostid']) ? $_GET['quepostid'] : '';
                             </button>
                             <div class="navbar-brand logo ">
                                 <h1 class="animated wow pulse" data-wow-delay=".5s">
-									<a href="index.html">Codex</a></h1>
+									<a href="index.html">Smart Coder</a></h1>
                             </div>
 
                         </div>
@@ -151,7 +151,7 @@ $quepostid= isset($_GET['quepostid']) ? $_GET['quepostid'] : '';
             <div class="myRegisterForm" style="width:100%; ">
                 <form method="post" action="reg.php">
                     <div class="form-group">
-                        <label for="usr">Roll Number:</label>
+                        <label for="usr">Student ID:</label>
                         <input type="text" class="form-control" id="usernamesignup" name="rollno" required="required">
                     </div>
                     <br>
@@ -183,7 +183,7 @@ $quepostid= isset($_GET['quepostid']) ? $_GET['quepostid'] : '';
         <div class="myRegisterForm">
             <form  action="login.php" autocomplete="on" method="post">
                 <div class="form-group">
-                    <label for="usr">Roll Number:</label>
+                    <label for="usr">Student ID:</label>
                     <input type="text" class="form-control" id="userid" name="userid">
                 </div>
                 <br>

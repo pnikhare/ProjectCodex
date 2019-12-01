@@ -3,7 +3,7 @@
 <head>
     <title>Post a question</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
@@ -55,7 +55,7 @@ input.username{
         <div class="header-top">
             <div class="container">
                 <div class="header-top-right">
-                <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssdi_group4@gmail.com">ssdi_group4@gmail.com</a></p>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssditeam@gmail.com">ssditeam@gmail.com</a></p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> (704) 191 9191</p>
                 </div>
             </div>
@@ -88,6 +88,7 @@ input.username{
 
           </ul>
       </div>
+      <h4 style="color:#428BCA;font-weight:bold"> &nbsp; Post a question</h4> <br>
 <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?user=".$_SESSION['userid'];?>"  style="width:100%; height:100%">
 <div class="coding-pane">
 <div class="running-pane" style="width:100%;height:7%;background:#acc9e2;padding-top:5px;padding-left:5px;border:solid black 0.5px">
@@ -129,11 +130,11 @@ echo "<script type='text/javascript'>alert('$message');</script>";
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/jquery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/angular/angular.min.js"></script>
 <script src="js/bzapp.js"></script>
 </body>
 </html>

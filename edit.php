@@ -9,11 +9,14 @@ if (isset($_GET['user'])) {
 <head>
   <title>Editor</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  
   <link rel="stylesheet" href="main.css" />
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
   <!-- default css files -->
 
   <!--web font-->
@@ -37,9 +40,23 @@ if (isset($_GET['user'])) {
      var fileType = select.options[select.selectedIndex].text;
      if(fileType=='C'){
        alert("A C main program must return int");
+       $.ajax({
+           url : "/ProjectCodex/CProgram.c",
+           dataType: "text",
+           success : function (data) {
+               $("#myTextArea").text(data);
+           }
+       });
      }
      else if(fileType=='Java'){
        alert("The public class name should be named 'MainClass'");
+       $.ajax({
+           url : "/ProjectCodex/JavaProgram.java",
+           dataType: "text",
+           success : function (data) {
+               $("#myTextArea").text(data);
+           }
+       });
      }
 
      }
@@ -129,5 +146,13 @@ echo $row['Qname'];
       <div class="write-code"><textarea style="width:100%;height:100%;padding:10px;border:solid black 0.5px;" spellcheck="false;" placeholder="Write Code Here..." name="myTextArea" id="myTextArea"></textarea></div>
     </div>
   </form>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="js/jquery/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/angular/angular.min.js"></script>
+<script src="js/bzapp.js"></script>
 </body>
 </html>

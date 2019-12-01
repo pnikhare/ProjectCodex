@@ -4,12 +4,12 @@
 <head>
   <title>Codex: Dashboard</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/codexApp.css" />
-  <title>Codex a Coding Ground for Students | Home :: Group 4</title>
+  <title>Smart Coder a Coding Ground for Students | Home :: Group 4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <meta name="keywords" content="Codex a Responsive coding ground, Bootstrap coding grounds, Flat coding grounds, Android Compatible coding ground,
+  <meta name="keywords" content="Smart Coder a Responsive coding ground, Bootstrap coding grounds, Flat coding grounds, Android Compatible coding ground,
 Smartphone Compatible coding ground, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
   <!-- default css files -->
@@ -24,6 +24,7 @@ Smartphone Compatible coding ground, free webdesigns for Nokia, Samsung, LG, Son
   <!--//web font-->
 
   <!-- scrolling script -->
+  <script src="js/jquery-2.1.4.min.js"></script> 
   <script type="text/javascript">
     jQuery(document).ready(function($) {
       $(".scroll").click(function(event) {
@@ -35,6 +36,42 @@ Smartphone Compatible coding ground, free webdesigns for Nokia, Samsung, LG, Son
     });
   </script>
   <!-- //scrolling script -->
+  <!-- LiVE Search from database -->
+  <script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+            $('.qbox').show();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+        
+        $('.qbox').hide();
+        var n = $(this).text();
+        $('div[value="'+$(this).text()+'"]').each(function() {
+        $(this).show();
+        
+        });
+        });
+});
+</script>
+  <!-- // LiVE Search from database -->
+
+
+
 <style>
 input.username{
   border: 0px;
@@ -56,7 +93,7 @@ header('Location: index.html');
     <div class="header-top">
       <div class="container">
         <div class="header-top-right">
-        <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssdi_group4@gmail.com">ssdi_group4@gmail.com</a></p>
+        <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ssditeam@gmail.com">ssditeam@gmail.com</a></p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> (704) 191 9191</p>
         </div>
       </div>
@@ -74,7 +111,7 @@ header('Location: index.html');
 							  </button>
             <!-- <div class="navbar-brand logo ">
               <h1 class="animated wow pulse" data-wow-delay=".5s" style="margin-left:12px;">
-									<a href="index.html"> Codex</a></h1>
+									<a href="index.html"> Smart Coder</a></h1>
             </div> -->
 
           </div>
@@ -116,10 +153,16 @@ header('Location: index.html');
             <br/>
             <br/>
             <div class="container">
+              <div class="search-box fa fa-search">
+                 
+                <input type="text" autocomplete="off" placeholder="Search Questions ..." />
+                <div class="result"></div>
+              </div>
               <div class="page-header">
                 <h1 style="">My snippets <a href="posting.php?user=<?php echo $_SESSION['userid'] ?>">
                   <button type="button" class="btn btn-primary btn-lg " style="float: right; margin-left: 10px;">
-                     <span class="glyphicon glyphicon-plus"></span>Post New
+                     <span class="glyphicon glyphicon-plus"></span>
+                     Post New
                   </button></a>
                 <a href="question.php?user=<?php echo $_SESSION['userid']?>">
                   <button type="button" class="btn btn-primary btn-lg pull-right">
@@ -136,13 +179,14 @@ if ($con->connect_error) {
 $r = mysqli_query($con, "SELECT * FROM answer where Userid = '".$_SESSION['userid']."'");
 echo '<div class="container outerpadding"> <div class="row">';
 while ($rows = mysqli_fetch_array($r)) {
-    $res = mysqli_query($con, "select * from question where Question.Qid='" . $rows['Qid'] . "'");
+    $res = mysqli_query($con, "select * from queavail where Qid='" . $rows['Qid'] . "'");
     $row = mysqli_fetch_array($res);
     $que = "hi";
     $_SESSION['que'] = str_replace('"', "", $row['Qname']);
     $que = $_SESSION['que'];
     $_SESSION['editcode'] = $rows['Solution'];
     $code = substr($rows['Solution'], 0, 150);
+    
     global $que;
     $n = 1;
     if ($rows['C'] == "yes") {
@@ -163,15 +207,16 @@ while ($rows = mysqli_fetch_array($r)) {
     } else {
         $count = 1;
     }
-    echo ' <div class="col-lg-3">
+    echo ' <div class="col-lg-3 qbox" id="box" value="'. $que .'">
+     
      <div class="panel" style="display:inline" >
 
         <div  class="panel-heading" style="background-color:#428BCA;color:#fff;"><strong>' . $que . '</strong></div>
         <div  class="panel-body" style="background-color:#000;color:#fff; box-shadow:0 -12px 13px #428BCA inset;">
 
         <div class="boximg" >
-           <div class="featureinfo" style="height:10%"><p>' . $code . '</p>
-        <a class="btn btn-primary btn-sm" href="showcode.php?user='.$_SESSION['userid'].'&AnsId=' . $rows['AnsID'] . '" role="button">more</a>
+           <div class="featureinfo" style="height:30px"><p>' . $code . '</p>
+        
           </div>
          <span class="likebut glyphicon glyphicon-tag"></span>
          </div>
@@ -179,11 +224,16 @@ while ($rows = mysqli_fetch_array($r)) {
         <p class="pull-left">Language
         </p>
      <span class="badge pull-right" style="background-color:teal">' . $lang . '</span>
+     
      <br>';
-    while ($n <= $count) {
+    echo "\t";
+     while ($n <= $count) {
+
         echo '<p style="display:inline"> <span class="glyphicon glyphicon-star" style="font-size:18px;white-space:nowrap;"></span></p>';
         $n++;
-    }
+    } 
+    echo "\t\t\t\t\t";
+    echo '<a class="btn btn-primary btn-sm pull-right" href="showcode.php?user='.$_SESSION['userid'].'&AnsId=' . $rows['AnsID'] . '" role="button">more</a> ';
     echo '</div>
      </div>
   </div>
@@ -200,10 +250,10 @@ echo '</div>
                 <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
               </ul>
             </nav>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-            <script src="js/bzApp.js"></script>
+            <script src="js/jquery/jquery.min.js"></script>
+            <script src="js/bootstrap/bootstrap.min.js"></script>
+            <script src="js/angular/angular.min.js"></script>
+            <script src="js/bzapp.js"></script>
           </body>
 
 </html>
